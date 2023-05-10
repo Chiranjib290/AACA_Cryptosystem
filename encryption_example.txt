@@ -1,0 +1,22 @@
+a  ( 1 ) (00001) and a  ( 1 ) (00001) ==> 33 (0000100001) (Combined_value)
+33 (0000100001) (Combined_Value) xor 599 (1001010111) (Mixer_key) = 630 (1001110110) (Mixed value)
+
+(space)  ( 27 ) (11011) and x  ( 24 ) (11000) ==> 888 (1101111000) (Combined_value)
+888 (1101111000) (Combined_Value) xor 630 (1001110110) (Mixer_key) = 270 (0100001110) (Mixed value)
+
+z  ( 26 ) (11010) ==> 26 (0000011010) (Combined_value)
+26 (0000011010) (Combined_Value) xor 270 (0100001110) (Mixer_key) = 276 (0100010100) (Mixed value)
+
+
+
+For rule = 113 , alpha = 0.393655 , Seed_key = 18446744073304539136
+
+asynchronous ( starting_value = 917 , at_iterations = 1849 ) ==> 630 (Mixed value)
+So value pushed into ciphertext = 1849
+
+asynchronous ( starting_value = 917 , at_iterations = 7138 ) ==> 270 (Mixed value)
+So value pushed into ciphertext = 7138
+
+asynchronous ( starting_value = 917 , at_iterations = 8675 ) ==> 276 (Mixed value)
+So value pushed into ciphertext = 8675
+

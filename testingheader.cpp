@@ -1,6 +1,7 @@
 #include "header.h"
 
 int main(){
+    std::ofstream ex;
     std::string plaintxt = "plaintext.txt";
     encryption_file(plaintxt);
     std::cout<<"Encryption Done\n";
@@ -9,6 +10,5 @@ int main(){
     std::string keys = "key.txt";
     decryption_file(encname,keys);
     std::cout<<"Decryption Done\n";
-    
     return 0;
 }

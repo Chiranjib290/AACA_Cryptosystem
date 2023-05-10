@@ -63,7 +63,7 @@ void decryption_file(string &encname, string &keys){
         kfile >> characterr;
         kfile.close();
     }else{
-        cout << "Wrong Key File name!\n";
+        ex << "Wrong Key File name!\n";
         return;
     }
     cfile.open(encname.c_str());
@@ -75,7 +75,7 @@ void decryption_file(string &encname, string &keys){
         }
         cfile.close();
     }else{
-        cout << "Wrong Ciphertext File name!\n";
+        ex << "Wrong Ciphertext File name!\n";
         return;
     }
     mx++;
@@ -96,6 +96,6 @@ int main(){
     string encname = "ciphertext.txt";
     string keys = "key.txt";
     decryption_file(encname,keys);
-    cout<<"Decryption Done"<<endl;
+    ex<<"Decryption Done"<<endl;
     return 0;
 }

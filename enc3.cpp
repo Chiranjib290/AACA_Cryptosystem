@@ -94,7 +94,7 @@ void encryption_file(string &filename){
         infile.close();
     }
     else{
-        cout<<"Wrong Plaintext Filename !\n";
+        ex<<"Wrong Plaintext Filename !\n";
         return;
     }
     string pltxt2;
@@ -136,6 +136,6 @@ void encryption_file(string &filename){
 int main(){
     string plaintxt = "plaintext.txt";
     encryption_file(plaintxt);
-    cout<<"Encryption Done"<<endl;
+    ex<<"Encryption Done"<<endl;
     return 0;
 }

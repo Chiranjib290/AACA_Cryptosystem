@@ -61,7 +61,7 @@ void checking(){
             double alpha = 0.4 + (((rand()+rnd*6153)%RAND_MAX)*(0.7-0.4) / (double(RAND_MAX))) ;
             //double alpha = 0.5;
             int Ks = int(rand()) ;
-            cout << "\nFor Size = "<< size << ",     Round = " << rnd << ",     Seed Key = "<< Ks << ",     Alpha = "<< alpha << "\nNew Rev Rules :- [ ";
+            ex << "\nFor Size = "<< size << ",     Round = " << rnd << ",     Seed Key = "<< Ks << ",     Alpha = "<< alpha << "\nNew Rev Rules :- [ ";
             
             for(int rule=0; rule<all_rev_rules.size(); rule++){
                 if(!rules[rule]){
@@ -74,15 +74,15 @@ void checking(){
                     }
                     if(flg){
                         rules[rule] = true;
-                        cout<<rule<<" , ";
+                        ex<<rule<<" , ";
                     }
                 }
             }
-            cout<<"]\n";
+            ex<<"]\n";
         }
         vector<int> v; for(int x=0; x<all_rev_rules.size(); x++) if(rules[x]) v.push_back(x);
         all_rev_rules = intersection(v, all_rev_rules);
-        cout<<"\nUnion :- [ "; for(int &rl: v) cout<<rl<<" , "; cout<<"]\n\n";
+        ex<<"\nUnion :- [ "; for(int &rl: v) ex<<rl<<" , "; ex<<"]\n\n";
     }
     //cout<<"\nIntersection of Unions :- [ "; for(int &rl: all_rev_rules) cout<<rl<<", "; cout<<"]\n\n";
 }

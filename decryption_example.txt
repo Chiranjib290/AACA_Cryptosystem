@@ -1,0 +1,17 @@
+For rule = 113 , alpha = 0.393655 , Seed_key = 18446744073304539136
+
+asynchronous ( starting_value = 917 , at_iterations = 1849 ) ==> 630 (Mixed value)
+
+asynchronous ( starting_value = 917 , at_iterations = 7138 ) ==> 270 (Mixed value)
+
+asynchronous ( starting_value = 917 , at_iterations = 8675 ) ==> 276 (Mixed value)
+
+
+599 (1001010111) (Mixer_key) xor 630 (1001110110) (Mixed value) = 33 (0000100001) (Demixed_value)
+33 (0000100001)(Demixed_value) ==> a ( 1 ) (00001) and a ( 1 ) (00001)
+
+630 (1001110110) (Mixer_key) xor 270 (0100001110) (Mixed value) = 888 (1101111000) (Demixed_value)
+888 (1101111000)(Demixed_value) ==> (space) (11011) and x ( 24 ) (11000)
+
+270 (0100001110) (Mixer_key) xor 276 (0100010100) (Mixed value) = 26 (0000011010) (Demixed_value)
+26 (0000011010)(Demixed_value) ==> z ( 26 ) (11010)

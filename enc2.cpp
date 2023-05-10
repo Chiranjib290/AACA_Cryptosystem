@@ -126,7 +126,7 @@ void encryption_file(string &filename){
         infile.close();
     }
     else{
-        cout<<"Wrong Plaintext Filename !\n";
+        ex<<"Wrong Plaintext Filename !\n";
         return;
     }
     vector<int> rules = {19, 27, 39, 43, 53, 55, 57, 83, 99, 113};
@@ -162,6 +162,6 @@ void encryption_file(string &filename){
 int main(){
     string plaintxt = "plaintext.txt";
     encryption_file(plaintxt);
-    cout<<"Encryption Done"<<endl;
+    ex<<"Encryption Done"<<endl;
     return 0;
 }
