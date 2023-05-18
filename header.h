@@ -81,7 +81,7 @@ void writeTable(std::vector<std::vector<int>> &values, int rule, long double alp
         myfile << j << "  -  [ ";
         if(values[j].size()==0) nos++;
         for(int i=0; i<values[j].size(); i++){
-            myfile << values[j][i]+1 << ", ";
+            myfile << values[j][i] << ", ";
         }
         myfile << "]\n";
     }
@@ -204,11 +204,17 @@ void encryption_file(std::string &filename){
         alpha = 0.2 + ((rand()*rand()*rand()*rand()*rand()*rand())%RAND_MAX)*(0.9-0.2) / ((long double)(RAND_MAX)) ;
         Seed_Key = (unsigned long long int)(rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand());
         start_value = rand()%(int(pow(2,size)));
+        
+        rule = 113; alpha = 0.393655; Seed_Key = 18446744073304539136; start_value = 917;
+        
         if(enc_async(rule, alpha, start_value, Seed_Key, start_value_to_index_at_iterations)) break;
     }
 
     ex.open("encryption_example.txt");
     int Mix_Key = rand() % (int)pow(2, size);//key
+    
+    Mix_Key = 599;
+    
     Mixed_Plaintext = mixer(plaintext, Mix_Key);
     std::ofstream cipher;
     cipher.open("ciphertext.txt");
