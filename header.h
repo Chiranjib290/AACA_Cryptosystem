@@ -191,10 +191,11 @@ void encryption_file(std::string &filename){
     }
     std::vector<int> Mixed_Plaintext;
     std::vector<int> rules = { 19 , 27 , 39 , 43 , 53 , 55 , 57 , 83 , 99 , 105 , 113 };
-    int rule;//key
-    long double alpha;//key
-    unsigned long long int Seed_Key;//key
-    int start_value;//key
+    int rule;//Rule key
+    long double alpha;//Alpha key
+    unsigned long long int Seed_Key;//Seed key
+    int start_value;//Start_Value key
+    int Mix_Key = rand() % (int)pow(2, size);//Mixer key
     std::vector<std::vector<int>> start_value_to_index_at_iterations;
     while(true){
         start_value_to_index_at_iterations.clear();
@@ -205,26 +206,20 @@ void encryption_file(std::string &filename){
         Seed_Key = (unsigned long long int)(rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand()*rand());
         start_value = rand()%(int(pow(2,size)));
         
-        rule = 113; alpha = 0.393655; Seed_Key = 18446744073304539136; start_value = 917;
+        //example values//
+        rule = 113; alpha = 0.393655; Seed_Key = 18446744073304539136; start_value = 917; Mix_Key = 599;
         
         if(enc_async(rule, alpha, start_value, Seed_Key, start_value_to_index_at_iterations)) break;
     }
-
     ex.open("encryption_example.txt");
-    int Mix_Key = rand() % (int)pow(2, size);//key
-    
-    Mix_Key = 599;
-    
-    Mixed_Plaintext = mixer(plaintext, Mix_Key);
     std::ofstream cipher;
     cipher.open("ciphertext.txt");
-    
+    Mixed_Plaintext = mixer(plaintext, Mix_Key);
     ex<<"\n\nFor rule = "<<rule<<" , alpha = "<<alpha<<" , Seed_key = "<<Seed_Key<<"\n\n";
     for (int i=0; i<Mixed_Plaintext.size(); i++) {
         int x = Mixed_Plaintext[i];
         srand(time(0));
         int y = start_value_to_index_at_iterations[x][rand()%(start_value_to_index_at_iterations[x].size())];
-        
         ex<<"asynchronous ( starting_value = "<<start_value<<" , at_iterations = "<<y<<" ) ==> "<<x<<" (Mixed value)\nSo value pushed into ciphertext = "<<y<<"\n\n";   
         cipher << y;
         if(i+1<Mixed_Plaintext.size()) cipher << '\n';
